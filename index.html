@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>InspiroBot Image Fetcher</title>
+</head>
+<body>
+  <div id="imageContainer">
+    <!-- Image will be displayed here -->
+  </div>
+  <script>
+    function fetchImage() {
+      fetch('https://inspirobot.me/api?generate=true') // Fetch image URL from InspiroBot API
+        .then(response => response.text())
+        .then(imageUrl => {
+          displayImage(imageUrl); // Display the image on the page
+        })
+        .catch(error => {
+          console.error('Error fetching image:', error);
+        });
+    }
+
+    function displayImage(imageUrl) {
+      const imageContainer = document.getElementById('imageContainer');
+      imageContainer.innerHTML = ''; // Clear previous image if any
+
+      const img = document.createElement('img');
+      img.src = imageUrl; // Set the image source to the fetched URL
+      img.alt = 'InspiroBot Image';
+      img.style.maxWidth = '100%'; // Adjust image size
+
+      imageContainer.appendChild(img); // Append the image to the container
+    }
+
+    fetchImage(); // Fetch and display an image on page load
+
+  </script>
+</body>
+</html>
