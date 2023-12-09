@@ -3,11 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>InspiroBot Image Fetcher</title>
+  <!-- bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-  <div id="imageContainer">
-    <!-- Image will be displayed here -->
-  </div>
+
+    <div class="d-flex justify-content-center vh-100">
+        <div id="imageContainer" class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 align-self-center">
+          <!-- Image will be displayed here -->
+        </div>
+    </div>
+
   <script>
     function fetchImage() {
       fetch('https://inspirobot.me/api?generate=true') // Fetch image URL from InspiroBot API
@@ -27,7 +33,7 @@
       const img = document.createElement('img');
       img.src = imageUrl; // Set the image source to the fetched URL
       img.alt = 'InspiroBot Image';
-      img.style.maxWidth = '100%'; // Adjust image size
+      img.style.width = '100%'; // Adjust image size
 
       imageContainer.appendChild(img); // Append the image to the container
     }
